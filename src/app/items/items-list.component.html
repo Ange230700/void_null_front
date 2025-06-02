@@ -1,0 +1,64 @@
+<!-- src/app/items/items-list.component.html -->
+
+<div class="p-4">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-2xl font-bold">Items</h2>
+    <button
+      pButton
+      type="button"
+      label="New Item"
+      (click)="onCreate()"
+      class="p-button-sm"
+    ></button>
+  </div>
+
+  <p-table
+    [value]="items"
+    [loading]="loading"
+    [paginator]="true"
+    [rows]="10"
+    class="w-full"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>In Stock</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-item>
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.price }}</td>
+        <td class="text-center">
+          <i
+            class="pi"
+            [ngClass]="
+              item.inStock
+                ? 'pi-check-circle text-green-500'
+                : 'pi-times-circle text-red-500'
+            "
+          ></i>
+        </td>
+        <td>
+          <button
+            pButton
+            icon="pi pi-pencil"
+            class="p-button-text p-button-sm mr-2"
+            (click)="onEdit(item)"
+          ></button>
+          <button
+            pButton
+            icon="pi pi-trash"
+            class="p-button-text p-button-sm p-button-danger"
+            (click)="onDelete(item)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

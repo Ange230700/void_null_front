@@ -1,0 +1,91 @@
+<!-- src/app/items/item-form.component.html -->
+
+<div class="p-4 max-w-lg mx-auto">
+  <h2 class="text-2xl font-bold mb-4">
+    {{ isEdit ? "Edit Item" : "New Item" }}
+  </h2>
+
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()" class="space-y-4">
+    <!-- Name -->
+    <div>
+      <label for="name" class="block mb-1 font-medium">Name</label>
+      <input
+        id="name"
+        pInputText
+        formControlName="name"
+        class="w-full"
+        [ngClass]="
+          itemForm.get('name')?.invalid && itemForm.get('name')?.touched
+            ? 'border-red-500'
+            : ''
+        "
+      />
+      <div
+        *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched"
+        class="text-red-500 text-sm mt-1"
+      >
+        Name is required.
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label for="description" class="block mb-1 font-medium"
+        >Description</label
+      >
+      <textarea
+        id="description"
+        pInputTextarea
+        formControlName="description"
+        class="w-full"
+      ></textarea>
+    </div>
+
+    <!-- Price -->
+    <div>
+      <label for="price" class="block mb-1 font-medium">Price</label>
+      <input
+        id="price"
+        pInputText
+        formControlName="price"
+        placeholder="e.g. 19.99 €"
+        class="w-full"
+        [ngClass]="
+          itemForm.get('price')?.invalid && itemForm.get('price')?.touched
+            ? 'border-red-500'
+            : ''
+        "
+      />
+      <div
+        *ngIf="itemForm.get('price')?.invalid && itemForm.get('price')?.touched"
+        class="text-red-500 text-sm mt-1"
+      >
+        Price is required.
+      </div>
+    </div>
+
+    <!-- In Stock -->
+    <div class="flex items-center">
+      <p-checkbox formControlName="inStock" inputId="inStock"></p-checkbox>
+      <label for="inStock" class="ml-2">In Stock</label>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex space-x-2 mt-4">
+      <button
+        pButton
+        type="submit"
+        label="Save"
+        [disabled]="loading"
+        class="flex-1"
+      ></button>
+      <button
+        pButton
+        type="button"
+        label="Cancel"
+        (click)="onCancel()"
+        class="flex-1 p-button-secondary"
+      ></button>
+    </div>
+  </form>
+</div>
