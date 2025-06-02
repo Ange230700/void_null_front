@@ -1,7 +1,7 @@
 <!-- src/app/items/items-list.component.html -->
 
-<div class="p-4">
-  <div class="flex justify-between items-center mb-4">
+<div class="flex flex-1 flex-col items-center justify-center p-4">
+  <div class="mb-4 flex w-full items-center justify-between">
     <h2 class="text-2xl font-bold">Items</h2>
     <button
       pButton
@@ -16,7 +16,7 @@
     [value]="items"
     [loading]="loading"
     [paginator]="true"
-    [rows]="10"
+    [rows]="3"
     class="w-full"
   >
     <ng-template pTemplate="header">
@@ -44,7 +44,7 @@
             "
           ></i>
         </td>
-        <td>
+        <td class="flex items-center justify-between">
           <button
             pButton
             icon="pi pi-pencil"
