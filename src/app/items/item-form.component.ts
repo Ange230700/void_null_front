@@ -7,9 +7,9 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { ItemsService } from './items.service';
+import { ItemsService } from '@/src/app/items/items.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import type { Item } from './item.model';
+import type { Item } from '@/src/app/items/item.model';
 
 // PrimeNG modules:
 import { InputTextModule } from 'primeng/inputtext';

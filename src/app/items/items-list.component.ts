@@ -1,8 +1,8 @@
 // src/app/items/items-list.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { ItemsService } from './items.service';
-import type { Item } from './item.model';
+import { ItemsService } from '@/src/app/items/items.service';
+import type { Item } from '@/src/app/items/item.model';
 
 // PrimeNG modules:
 import { TableModule } from 'primeng/table';
