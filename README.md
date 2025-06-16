@@ -1,6 +1,6 @@
 <!-- README.md -->
 
-# VoidNull
+# VoidNull Frontend
 
 A modern full-stack demo app built with Angular, PrimeNG, TailwindCSS, and a RESTful Node.js/NestJS backend. Manage your items inventory in style — with a focus on robust code quality, scalable patterns, and a sleek UI.
 
