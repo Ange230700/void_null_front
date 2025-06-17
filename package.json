@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
   },
   "private": true,
   "dependencies": {
@@ -41,9 +42,12 @@
     "@eslint/json": "^0.12.0",
     "@eslint/markdown": "^6.4.0",
     "@types/jasmine": "~5.1.0",
+    "commit-prompt": "^2.2.3",
+    "commitizen": "^4.3.1",
     "eslint": "^9.28.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
+    "git-cz": "^4.9.0",
     "globals": "^16.2.0",
     "husky": "^9.1.7",
     "jasmine-core": "~5.7.0",
@@ -53,6 +57,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^16.1.0",
+    "mol-conventional-changelog": "^2.0.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
     "typescript": "~5.8.2",
@@ -61,10 +66,15 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown",
-    "*.js": "eslint --cache --fix"
+    "*.{js,mjs,cjs,ts,mts,cts, json, jsonc, json5, md, css}": "eslint --cache --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "commit-prompt"
+    }
   },
   "validate-branch-name": {
     "pattern": "^(master|main|develop){1}$|^(feature|fix|hotfix|release)/.+$",
-    "errorMsg": "Branch name must be master, main, develop, feature, fix, hotfix or release"
+    "errorMsg": "Branch name must be master, main, develop, feature/XXX, fix/XXX, hotfix/XXX or release/XXX"
   }
 }
